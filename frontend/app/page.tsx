@@ -6,6 +6,7 @@ import { View } from '@/components/canvas/View'
 import Scroll, { ScrollTicker } from '@/templates/Scroll'
 import { Image, PresentationControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
+import SlideInMemory from '@/components/canvas/SlideInMemory'
 
 const NightSky = dynamic(() => import('@/components/canvas/NightSky').then((mod) => mod.NightSky), { ssr: false })
 
@@ -14,8 +15,9 @@ export default function Page() {
 
   return (
     <>
+      <div className='pointer-events-none fixed inset-0 -z-50 h-screen w-screen bg-slate-800' />
       <Scroll>
-        <div className='fixed inset-0 top-0 left-0 h-screen w-screen -z-30 pointer-events-none'>
+        <div className='fixed inset-0 h-screen w-screen -z-30 pointer-events-none'>
           <Canvas>
             <ScrollTicker />
             <color attach='background' args={['rgb(30,41,59)']} />
@@ -34,9 +36,7 @@ export default function Page() {
               nightSkyLoaded ? 'opacity-0' : 'opacity-100'
             }`}
           />
-          <h1
-            className={`font-crimson animate-textFocusIn text-6xl font-bold uppercase tracking-widest text-stone-300 md:text-9xl`}
-          >
+          <h1 className={`font-crimson text-6xl font-bold uppercase tracking-widest text-stone-300 md:text-9xl`}>
             Yozora
           </h1>
           <h3
@@ -48,20 +48,7 @@ export default function Page() {
           </h3>
         </div>
         <div className='flex h-screen w-full flex-col items-center justify-center'>
-          <View className='inset-0 h-full w-full'>
-            <Suspense fallback={null}>
-              <PresentationControls
-                // global
-                snap
-                zoom={0.8}
-                rotation={[0, Math.PI * 0.05, 0]}
-                polar={[0, Math.PI / 8]}
-                azimuth={[-Math.PI / 8, Math.PI / 8]}
-              >
-                <Image transparent url='/img/memories/night_street.JPG' scale={5} />
-              </PresentationControls>
-            </Suspense>
-          </View>
+          <SlideInMemory />
         </div>
       </Scroll>
     </>
