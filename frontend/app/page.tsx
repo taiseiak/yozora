@@ -11,7 +11,7 @@ export default function Page() {
 
   return (
     <>
-      <div className='flex h-screen w-full snap-center flex-col items-center justify-center'>
+      <div className='flex h-screen w-full flex-col items-center justify-center'>
         <div
           className={`pointer-events-none absolute inset-0 -z-10 bg-slate-800 transition-opacity duration-[2s] ${
             nightSkyLoaded ? 'opacity-0' : 'opacity-100'
@@ -30,7 +30,7 @@ export default function Page() {
           Scroll to see memories
         </h3>
       </div>
-      <div className='flex h-screen w-full snap-center flex-col items-center justify-center'>
+      <div className='flex h-screen w-full flex-col items-center justify-center'>
         <h1>Another div</h1>
       </div>
       <View className='fixed inset-0 h-screen w-full -z-10'>
