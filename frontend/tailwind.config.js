@@ -14,7 +14,7 @@ module.exports = {
         fadeIn: 'fadeIn 5s ease-in-out',
         fadeOut: 'fadeOut 5s linear 1s both',
         slideFromTop: 'slideFromTop 1300ms ease-in-out both',
-        textFocusIn: 'textFocusIn 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both',
+        textFocusIn: 'textFocusIn 500ms cubic-bezier(0.550, 0.085, 0.680, 0.530) both',
       },
       keyframes: {
         fadeIn: {
