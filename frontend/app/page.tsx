@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import { Suspense, useEffect, useRef, useState } from 'react'
 import { View } from '@/components/canvas/View'
 import Scroll, { ScrollTicker } from '@/templates/Scroll'
+import { Image, PresentationControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 
 const NightSky = dynamic(() => import('@/components/canvas/NightSky').then((mod) => mod.NightSky), { ssr: false })
@@ -47,19 +48,21 @@ export default function Page() {
           </h3>
         </div>
         <div className='flex h-screen w-full flex-col items-center justify-center'>
-          <h1>Another div</h1>
+          <View className='inset-0 h-full w-full'>
+            <Suspense fallback={null}>
+              <PresentationControls
+                // global
+                snap
+                zoom={0.8}
+                rotation={[0, Math.PI * 0.05, 0]}
+                polar={[0, Math.PI / 8]}
+                azimuth={[-Math.PI / 8, Math.PI / 8]}
+              >
+                <Image transparent url='/img/memories/night_street.JPG' scale={5} />
+              </PresentationControls>
+            </Suspense>
+          </View>
         </div>
-        <View className='fixed inset-0 h-screen w-full -z-10'>
-          <ScrollTicker />
-          <color attach='background' args={['rgb(30,41,59)']} />
-          <Suspense fallback={null}>
-            <NightSky
-              afterLoadCallback={() => {
-                setNightSkyLoaded(true)
-              }}
-            />
-          </Suspense>
-        </View>
       </Scroll>
     </>
   )
