@@ -7,9 +7,13 @@ module.exports = {
       fontFamily: {
         crimson: ['Crimson Text', 'serif'],
       },
+      transitionProperty: {
+        clip: 'clip-path',
+      },
       animation: {
         fadeIn: 'fadeIn 5s ease-in-out',
         fadeOut: 'fadeOut 5s linear 1s both',
+        slideFromTop: 'slideFromTop 1300ms ease-in-out both',
       },
       keyframes: {
         fadeIn: {
@@ -19,6 +23,10 @@ module.exports = {
         fadeOut: {
           '0%': { opacity: 1 },
           '100%': { opacity: 0 },
+        },
+        slideFromTop: {
+          '0%': { clipPath: 'inset(0 0 100% 0)' },
+          '100%': { clipPath: 'inset(0)' },
         },
       },
     },
