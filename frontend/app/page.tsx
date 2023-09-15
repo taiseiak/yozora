@@ -18,7 +18,7 @@ export default function Page() {
           }`}
         />
         <h1
-          className={`font-crimson animate-slideFromTop text-6xl font-bold uppercase tracking-widest text-stone-300 md:text-9xl`}
+          className={`font-crimson animate-textFocusIn text-6xl font-bold uppercase tracking-widest text-stone-300 md:text-9xl`}
         >
           Yozora
         </h1>

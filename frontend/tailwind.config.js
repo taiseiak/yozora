@@ -14,6 +14,7 @@ module.exports = {
         fadeIn: 'fadeIn 5s ease-in-out',
         fadeOut: 'fadeOut 5s linear 1s both',
         slideFromTop: 'slideFromTop 1300ms ease-in-out both',
+        textFocusIn: 'textFocusIn 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both',
       },
       keyframes: {
         fadeIn: {
@@ -27,6 +28,16 @@ module.exports = {
         slideFromTop: {
           '0%': { clipPath: 'inset(0 0 100% 0)' },
           '100%': { clipPath: 'inset(0)' },
+        },
+        textFocusIn: {
+          '0%': {
+            filter: 'blur(12px)',
+            opacity: '0',
+          },
+          to: {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
         },
       },
     },
